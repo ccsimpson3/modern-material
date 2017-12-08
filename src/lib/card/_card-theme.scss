@@ -1,0 +1,56 @@
+@import '../core/theming/palette';
+@import '../core/theming/theming';
+@import '../core/typography/typography-utils';
+
+
+@mixin mat-card-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .mat-card {
+    background: mat-color($background, card);
+    color: mat-color($foreground, text);
+  }
+
+  .mat-card .mat-caption {    
+    color: mat-color($foreground, hint-text);
+  }
+
+  .mat-card-subtitle {
+    color: mat-color($foreground, secondary-text);
+  }
+
+  .mat-card-title{
+    color: mat-color($foreground, base);
+  }
+}
+
+@mixin mat-card-typography($config) {
+  .mat-card {
+    font-family: mat-font-family($config);
+  }
+
+  .mat-card-title {
+    font: {
+      size: mat-font-size($config, headline);
+      weight: mat-font-weight($config, headline);
+    }
+    line-height: mat-line-height($config, headline);
+    letter-spacing: 1px;
+  }
+
+  .mat-card-header .mat-card-title {
+    font-size: mat-font-size($config, body-1);
+  }
+  
+  .mat-card-content{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 22px;
+    letter-spacing: .6px;
+  }
+
+  .mat-card-subtitle{
+    font-size: mat-font-size($config, body-small);
+  }
+}
